@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BrandController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -17,3 +18,9 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+
+
+Route::post('/create-brand', [BrandController::class, 'createBrand']);
+Route::post('/update-brand/{id}', [BrandController::class, 'updateBrand']);
+Route::get('/delete-brand/{id}', [BrandController::class, 'deleteBrand']);
